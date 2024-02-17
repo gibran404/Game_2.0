@@ -1371,7 +1371,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   boy: {fileID: 2096455834}
-  girl: {fileID: 0}
+  girl: {fileID: 2085881909}
   woman: {fileID: 986955424}
   StartScreen: {fileID: 856989568}
   StartTime: 0

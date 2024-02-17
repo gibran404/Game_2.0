@@ -41,26 +41,26 @@ public class raceStart : MonoBehaviour
     void Update()
     {
         timePassed = Time.time - StartTime;
-        
-        if (timePassed > 4f)
+        if (timePassed > 4.5f)
+        {
+            raceStarted = true;
+            StartScreen.SetActive(false);
+            Timer.SetActive(false);
+        }
+        else if (timePassed > 4f)
         {
             Timer.GetComponent<Text>().text = "GO!";
-            StartScreen.SetActive(false);
-            raceStarted = true;
         }
         else if (timePassed > 3f)
         {
-            // make timer text "1"
             Timer.GetComponent<Text>().text = "Race Starting in: 1";
         }
         else if (timePassed > 2f)
         {
-            // make timer text "2"
             Timer.GetComponent<Text>().text = "Race Starting in: 2";
         }
         else if (timePassed > 1f)
         {
-            // make timer text "3"
             Timer.GetComponent<Text>().text = "Race Starting in: 3";
         }
     }
