@@ -38,12 +38,6 @@ public class PlayerMovement : MonoBehaviour
             rb.velocity = new Vector2(rb.velocity.x, jumpForce);
         }
         UpdateAnimationState();
-
-        //when escape key is pressed, it will quit the game
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            Application.Quit();
-        }
     }
 
     private void UpdateAnimationState()

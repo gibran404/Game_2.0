@@ -6,9 +6,8 @@ using UnityEngine.UI;
 public class Guard : MonoBehaviour
 {
     public GameObject dialogPanel;
-    public GameObject GamePanel;
-    public Text dialogText;
-    public string[] dialog;
+        public Text dialogText;
+        public string[] dialog;
     private int index;
     public GameObject contButton;
     public GameObject playButton;
@@ -21,7 +20,8 @@ public class Guard : MonoBehaviour
     public bool playerIsClose;
     public bool TextOver;
     public bool Initiated;
-    public GameObject winPanel;
+    
+    //public GameObject winPanel;
     // Start is called before the first frame update
 
     void Start()
@@ -29,16 +29,16 @@ public class Guard : MonoBehaviour
         dialogPanel.SetActive(false);
         contButton.SetActive(false);
         playButton.SetActive(false);
-        winPanel.SetActive(false);
+//        winPanel.SetActive(false);
         Initiated = false;
         flag = true;
     }
     void Update()
     {
-        if (!playerIsClose){
-            GamePanel.SetActive(false);
-            winPanel.SetActive(false);
-        }
+        // if (!playerIsClose){
+        //     //GamePanel.SetActive(false);
+        //     winPanel.SetActive(false);
+        // }
         if(!Initiated && playerIsClose){
             if(dialogPanel.activeInHierarchy){
                 zeroText();
@@ -127,10 +127,5 @@ public class Guard : MonoBehaviour
         switchchar();
     }
 
-    public void PlayGame()
-    {
-        GamePanel.SetActive(true);
-        dialogPanel.SetActive(false);
-    }
 
 }

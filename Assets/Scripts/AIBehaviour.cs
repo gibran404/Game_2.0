@@ -5,10 +5,12 @@ using NineMensMorris;
 using System.IO;
 using System;
 using System.Threading.Tasks;
+using UnityEngine.UI;
 
 public class AIBehaviour : MonoBehaviour
 {
     public int player;
+    public GameObject TextPanel;
 
     private enum State
     {
@@ -28,6 +30,7 @@ public class AIBehaviour : MonoBehaviour
 
     private void Start()
     {
+        TextPanel.SetActive(true);
         board = GameObject.Find("Board").GetComponent<Board>();
         game = GameObject.Find("GameManager").GetComponent<GameManager>().Game;
 
@@ -45,6 +48,7 @@ public class AIBehaviour : MonoBehaviour
             case State.WaitForTurn:
                 if (game.CurrentPlayer == player && !game.IsGameOver)
                 {
+                    TextPanel.GetComponent<Text>().text = "Turn: Ai\nThinking...";
                     CalculateMove();
                     state = State.WaitForResult;
                 }
@@ -53,6 +57,7 @@ public class AIBehaviour : MonoBehaviour
             case State.WaitForResult:
                 if (ResultAvailable)
                 {
+                    TextPanel.GetComponent<Text>().text = "Turn: Ai\nMoving...";
                     state = State.ApplyMove;
                     StartCoroutine(ApplyMove());
                 }
@@ -85,14 +90,17 @@ public class AIBehaviour : MonoBehaviour
         board.MoveStone(move.From, move.To, stone);
 
         // 2. Remove other player stone
-        if (move.Remove != -1)
+        if (move.Remove != -1){
+            TextPanel.GetComponent<Text>().text = "Turn: Ai\nRemoving Stone...";
+            yield return new WaitForSeconds(1);
             board.RemoveStone(move.Remove);
-
+        }
         // 3. Update game state
         game.Move(move);
 
         // 4. Wait for next turn
         move = null;
+        TextPanel.GetComponent<Text>().text = "Turn: Player";
         state = State.WaitForTurn;
     }
 
