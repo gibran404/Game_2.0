@@ -19,6 +19,7 @@ public class camelPlayer : MonoBehaviour
 
     void Start()
     {
+        raceStart.raceStarted = false; 
         rb = GetComponent<Rigidbody2D>();
         coll = GetComponent<BoxCollider2D>();
         sprite = GetComponent<SpriteRenderer>();

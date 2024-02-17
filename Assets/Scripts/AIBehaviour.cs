@@ -31,6 +31,8 @@ public class AIBehaviour : MonoBehaviour
     private void Start()
     {
         TextPanel.SetActive(true);
+        TextPanel.GetComponent<Text>().text = "Turn: Player";
+        
         board = GameObject.Find("Board").GetComponent<Board>();
         game = GameObject.Find("GameManager").GetComponent<GameManager>().Game;
 

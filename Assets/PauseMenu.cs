@@ -8,15 +8,27 @@ public class PauseMenu : MonoBehaviour
 
     public void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape) && PausePanel.activeSelf == false)
+        if (Input.GetKeyDown(KeyCode.Escape))
         {
-            PausePanel.SetActive(true);
+            if (PausePanel.activeSelf == false)
+            {
+                PausePanel.SetActive(true);
+            }
+            else
+            {
+                PausePanel.SetActive(false);
+            }
         }
 
-        if (Input.GetKeyDown(KeyCode.Escape) && PausePanel.activeSelf == true)
-        {
-            PausePanel.SetActive(false);
-        }
+        // if (Input.GetKeyDown(KeyCode.Escape) && PausePanel.activeSelf == false)
+        // {
+        //     PausePanel.SetActive(true);
+        // }
+
+        // if (Input.GetKeyDown(KeyCode.Escape) && PausePanel.activeSelf == true)
+        // {
+        //     PausePanel.SetActive(false);
+        // }
     }
 
     public void Continue()

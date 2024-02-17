@@ -6,11 +6,11 @@ using UnityEngine.UI;
 
 public class StartMenu : MonoBehaviour
 {
-    public void StartGame()
+    public void NextScene()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
-    public void Retry()
+    public void RestartScene()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
@@ -21,5 +21,9 @@ public class StartMenu : MonoBehaviour
     public void BackToMenu()
     {
         SceneManager.LoadScene(0);
+    }
+    public void Continue()
+    {
+        transform.parent.gameObject.SetActive(false);
     }
 }
