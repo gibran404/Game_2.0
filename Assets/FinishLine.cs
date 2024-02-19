@@ -33,12 +33,12 @@ public class FinishLine : MonoBehaviour
     {
         if (playerWon)
         {
-            dialogText.GetComponent<Text>().text = "Congratulations you won the Race";
+            dialogText.GetComponent<Text>().text = "Congratulations you won the Race!\n You can now continue onwards or Retry";
             winPanel.SetActive(true);
         }
         if (!playerWon)
         {
-            dialogText.GetComponent<Text>().text = "You Lost the game, Better luck next time!";
+            dialogText.GetComponent<Text>().text = "You Lost the game, Better luck next time!\n You can now continue onwards or Retry";
             winPanel.SetActive(true);
         }
     }

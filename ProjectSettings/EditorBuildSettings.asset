@@ -22,10 +22,16 @@ EditorBuildSettings:
     guid: 9fc0d4010bbf28b4594072e72b8655ab
   - enabled: 1
     path: Assets/Scenes/5-Sea.unity
-    guid: 24e6f583d0e490f4cab6faffe4902d7b
+    guid: 49fa8916a9387d34280221c35fb41098
   - enabled: 1
     path: Assets/Scenes/6-TyreRace.unity
     guid: 8dae8ba929a2bc74c961ed71200fb3d6
+  - enabled: 1
+    path: Assets/Scenes/7-City.unity
+    guid: 9e2ea4eab4a703544b3add9ea877a740
+  - enabled: 1
+    path: Assets/Scenes/8-TagGame.unity
+    guid: 7ff0cc772d868974baccb99b0b19953e
   - enabled: 1
     path: Assets/Scenes/EndScreen.unity
     guid: 49b64597ead35584cae1b9895989ff33

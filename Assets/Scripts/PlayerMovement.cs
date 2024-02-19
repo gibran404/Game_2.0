@@ -4,9 +4,15 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+    public static bool alive = true;
     private Rigidbody2D rb;
     private BoxCollider2D coll;
-    private SpriteRenderer sprite;
+
+    public GameObject Boy;
+    private SpriteRenderer spriteBoy;
+    public GameObject Girl;
+    private SpriteRenderer spriteGirl;
+
     private Animator anim;
 
     [SerializeField] private LayerMask jumpableGround;
@@ -21,15 +27,21 @@ public class PlayerMovement : MonoBehaviour
     // Start is called before the first frame update
     private void Start()
     {
+        alive = true;
         rb = GetComponent<Rigidbody2D>();
         coll = GetComponent<BoxCollider2D>();
-        sprite = GetComponent<SpriteRenderer>();
         anim = GetComponent<Animator>();
+        spriteBoy = Boy.GetComponent<SpriteRenderer>();
+        spriteGirl = Girl.GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
     private void Update()
     {
+        if (!alive)
+        {
+            return;
+        }
         dirX = Input.GetAxisRaw("Horizontal");
         rb.velocity = new Vector2(dirX * moveSpeed, rb.velocity.y);
 
@@ -48,12 +60,14 @@ public class PlayerMovement : MonoBehaviour
         if (dirX > 0f)
         {
             state = MovementState.running;
-            sprite.flipX = false;
+            spriteBoy.flipX = false;
+            spriteGirl.flipX = false;
         }
         else if (dirX < 0f)
         {
             state = MovementState.running;
-            sprite.flipX = true;
+            spriteBoy.flipX = true;
+            spriteGirl.flipX = true;
         }
         else
         {

@@ -5,14 +5,13 @@ TagManager:
   serializedVersion: 2
   tags:
   - AI
-  - PieceW
-  - PieceB
   - Ground
+  - Enemy
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Player
   - Water
   - UI
   - 

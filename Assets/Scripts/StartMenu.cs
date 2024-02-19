@@ -37,7 +37,10 @@ public class StartMenu : MonoBehaviour
     {
         transform.parent.gameObject.SetActive(false);
     }
-
+    public void Continue_PauseMenu()
+    {
+        transform.parent.gameObject.SetActive(false);
+    }
 
     public void MiniGameMode()
     {
@@ -47,7 +50,6 @@ public class StartMenu : MonoBehaviour
     {
         gamemode = "Story";
     }
-
 
     public void StartCamel()
     {

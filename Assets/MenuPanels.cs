@@ -2,13 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PauseMenu : MonoBehaviour
+public class MenuPanels : MonoBehaviour
 {
     public GameObject PausePanel;
+    public GameObject deathPanel;
 
+    public void Start()
+    {
+        deathPanel.SetActive(false);
+        PausePanel.SetActive(false);
+    }
     public void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape) && PlayerMovement.alive == true)
         {
             if (PausePanel.activeSelf == false)
             {
@@ -20,15 +26,10 @@ public class PauseMenu : MonoBehaviour
             }
         }
 
-        // if (Input.GetKeyDown(KeyCode.Escape) && PausePanel.activeSelf == false)
-        // {
-        //     PausePanel.SetActive(true);
-        // }
-
-        // if (Input.GetKeyDown(KeyCode.Escape) && PausePanel.activeSelf == true)
-        // {
-        //     PausePanel.SetActive(false);
-        // }
+        if (PlayerMovement.alive == false)
+        {
+            deathPanel.SetActive(true);
+        }
     }
 
     public void Continue()
